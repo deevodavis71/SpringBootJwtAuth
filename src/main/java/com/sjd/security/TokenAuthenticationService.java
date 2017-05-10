@@ -13,7 +13,6 @@ import org.springframework.security
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,10 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Collections.emptyList;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 class TokenAuthenticationService {
@@ -34,6 +30,7 @@ class TokenAuthenticationService {
   static final String SECRET = "ThisIsASecret";
   static final String TOKEN_PREFIX = "Bearer";
   static final String HEADER_STRING = "Authorization";
+  static final String TOKEN_HEADER_ROLES = "ROLES";
 
   private static final Logger logger = LoggerFactory.getLogger(TokenAuthenticationService.class);
 
@@ -56,7 +53,7 @@ class TokenAuthenticationService {
             roles.add(ga.getAuthority());
         }
 
-        userRoles.putIfAbsent("ROLES", roles);
+        userRoles.putIfAbsent(TOKEN_HEADER_ROLES, roles);
     }
 
     // SJD - Authorities don't seem to be being passed across, and I can't add them into the Claims
@@ -94,7 +91,7 @@ class TokenAuthenticationService {
 
       JwsHeader header = parsed.getHeader ();
 
-      List<String> userRoles = (List<String>) header.getOrDefault ("ROLES", Collections.<String>emptyList ());
+      List<String> userRoles = (List<String>) header.getOrDefault (TOKEN_HEADER_ROLES, Collections.<String>emptyList ());
       logger.debug("userRoles = " + userRoles);
 
       String user = claims.getSubject();
