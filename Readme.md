@@ -49,17 +49,10 @@ X-XSS-Protection: 1; mode=block
 Cache-Control: no-cache, no-store, max-age=0, must-revalidate  
 Pragma: no-cache  
 Expires: 0  
-<<<<<<< HEAD
 X-Frame-Options: DENY
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE0OTUyNzc2NDN9.nctRT6W83aR_1QdKwkiT78jQd72EaZEWlZwq995Gb7nu-Y5Ryvb5drennloN5lTv92q6YI0j3QiL2QiOT3okjQ
 Content-Length: 0  
 Date: Wed, 10 May 2017 10:54:03 GMT   
-=======
-X-Frame-Options: DENY  
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJqYW1lc2JvbmQiLCJleHAiOjE0OTUyNzc2NDN9.nctRT6W83aR_1QdKwkiT78jQd72EaZEWlZwq995Gb7nu-Y5Ryvb5drennloN5lTv92q6YI0j3QiL2QiOT3okjQ  
-Content-Length: 0  
-Date: Wed, 10 May 2017 10:54:03 GMT  
->>>>>>> 4fb0cc2ac31873c74c747c25eb69ca38441ffee9
 
 Access restricted areas (/getusers and /getsupersecret) as jamesbond
 ====================================================================
